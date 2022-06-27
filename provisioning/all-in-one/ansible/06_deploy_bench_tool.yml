@@ -6,7 +6,7 @@
   tasks:
     - file: path=/home/isucon/.ssh state=directory owner=isucon mode=755
     - git:
-        repo=https://github.com/isucon/isucon5-final.git
+        repo=https://github.com/0Delta/isucon5-final.git
         dest=/home/isucon/isucon5-final
     - copy: src=../files/env.sh dest=/home/isucon/env.sh owner=isucon mode=755
     - name: ruby
