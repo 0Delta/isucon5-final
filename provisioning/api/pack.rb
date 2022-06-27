@@ -8,18 +8,18 @@ class CLI < Thor
   class_option :verbose, type: :boolean, default: false
 
   desc 'run_instance', 'Run new instance'
-  option :project, default: 'isucon5-qualify' # TBD
+  option :project, default: 'isucon5-final'
   option :name, required: true
   option :zone, default: 'asia-east1-c'
   option :machine_type, default: 'n1-highcpu-8'
   option :network, default: 'default'
   option :address, default: nil # specify this for static ip
   option :maintenance_policy, default: 'TERMINATE'
-  option :scopes, default: ['https://www.googleapis.com/auth/devstorage.read_write', 'https://www.googleapis.com/auth/logging.write']
-  option :tags, default: ['http-server']
+  # option :scopes, default: ['https://www.googleapis.com/auth/devstorage.read_write', 'https://www.googleapis.com/auth/logging.write']
+  option :tags, default: 'http-server'
   # option :image, default: 'https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-1404-trusty-v20150909a'
   option :image, default: 'api-image-test1'
-  option :boot_disk_size, default: 16
+  option :boot_disk_size, default: '16'
   option :boot_disk_type, default: 'pd-standard'
   option :boot_disk_device_name, default: 'base1'
   option :root_ssh_key, default: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwttspGr+7FLz0f6d/Cfd2o5MzQ11+0/De7Kh2bm6XLfu7M2cRk3KL8FuvJ8a8ZgAbB/PiUEDRaqXo2UU54gzJYOmlILM7yu8J/U2iJrIDK0MPc53xLJHzk+PzBRqWvVsW2PwsIqykV7sgRVgIHc4wN7+OZzdiTdKe5wnfWxYs4jx46MAxkfv81fk2FHekqf4P/dZUIJBtS1UiCjw8O2cuaGHWkMHYLUeo18PR3yQR9zKW/5cxhYXTArNRtQBwTLXQtQCh/EDYjGwnEqs/KY+Vss4933pET2HphnzG2m32t0YCQ4Epb9sAwxB0aqxN3IPD0kLtVpzMgOHG1pyXdhQ5 root@base-image.isucon.net'
