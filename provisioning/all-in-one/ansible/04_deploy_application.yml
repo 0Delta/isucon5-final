@@ -7,8 +7,8 @@
 
 - hosts: all
   gather_facts: no
-  sudo: yes
-  sudo_user: isucon
+  become: yes
+  become_user: isucon
   tasks:
     - file: path=/home/isucon/.ssh state=directory owner=isucon mode=755
     - git:

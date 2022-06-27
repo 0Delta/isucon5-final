@@ -1,8 +1,8 @@
 ---
 - hosts: guests:extras
 #- hosts: extras
-  sudo: yes
-  sudo_user: isucon
+  become: yes
+  become_user: isucon
   gather_facts: no
   tasks:
     - git:

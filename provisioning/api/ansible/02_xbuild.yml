@@ -1,7 +1,7 @@
 ---
 - hosts: api
-  sudo: yes
-  sudo_user: isucon
+  become: yes
+  become_user: isucon
   gather_facts: no
   tasks:
     - git:

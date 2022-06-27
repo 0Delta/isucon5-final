@@ -3,7 +3,7 @@
   gather_facts: no
   tasks:
     - apt: name=nginx state=present
-    - service: name=nginx state=running enabled=true
+    - service: name=nginx state=started enabled=true
     - copy: src=../files/nginx.conf dest=/etc/nginx/nginx.conf owner=root mode=644
       notify:
         - reload nginx
@@ -22,7 +22,7 @@
       copy: src=../files/pg_hba.conf dest=/etc/postgresql/9.4/main/pg_hba.conf owner=postgres group=postgres mode=640
       notify:
         - restart postgresql
-    - service: name=postgresql state=running enabled=true
+    - service: name=postgresql state=started enabled=true
   handlers:
     - name: restart postgresql
       action: service name=postgresql state=restarted
@@ -31,8 +31,8 @@
 
 - hosts: all
   gather_facts: no
-  sudo: yes
-  sudo_user: postgres
+  become: yes
+  become_user: postgres
   tasks:
     - postgresql_user: name=isucon
     - postgresql_db: name=isucon5f owner=isucon encoding=utf8 template=template0
@@ -40,8 +40,8 @@
 
 - hosts: all
   gather_facts: no
-  sudo: yes
-  sudo_user: isucon
+  become: yes
+  become_user: isucon
   tasks:
     - copy: src=../files/schema.sql dest=/tmp/schema.sql
     - shell: cat /tmp/schema.sql | psql isucon5f
