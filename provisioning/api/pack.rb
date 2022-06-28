@@ -8,7 +8,7 @@ class CLI < Thor
   class_option :verbose, type: :boolean, default: false
 
   desc 'run_instance', 'Run new instance'
-  option :project, default: 'isucon5-final'
+  option :project, default: ENV['GOOGLE_CLOUD_PROJECT']
   option :name, required: true
   option :zone, default: 'asia-east1-c'
   option :machine_type, default: 'n1-highcpu-8'
